@@ -1,0 +1,237 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    list-style-type: none;
+}
+:root{
+    --text-color:#cdcdcd;
+    --padding:1rem;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation{
+    background-color: rgb(60,98,85);
+    color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+}
+.nav{
+    gap: 2rem; 
+    display: flex;
+}
+.nav__link{
+    color: rgb(255, 255, 255);
+    font-size: 1.4rem;
+    transition: all 0.4s linear;
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+.nav__link:hover{
+    background-color: rgb(166, 187, 141);
+    color: rgb(255, 255, 25);
+    text-decoration:none;
+    transform: rotate(20deg);
+}
+
+header{
+    height: 100vh;
+    background: url("https://i.postimg.cc/nLyPmGBY/diaconaat.jpg") no-repeat center;
+    background-attachment:fixed;
+    background-size: cover;
+    filter: saturate(0);
+}
+header:hover{
+    filter:saturate(1);
+}
+
+main{
+    background-color: #ffffca;
+    margin: 1rem;
+    padding: var(--padding);
+}
+section{
+    color: var(--text-color);
+}
+.section-title{
+    border-bottom: 1px solid #002345;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(0, 250, 1, 0.6);
+}
+.row{
+    min-height: 80vh;
+    background-color: black;
+    margin: 2rem 0;
+}
+.row::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.card{
+    width: 25%;
+    background-color: blue;
+    padding: var(--padding);
+    margin: 1rem;
+    transform: skew(2deg);
+    transition: all 0.4ms linear;
+}
+.vertical{
+    flex-direction: column;
+    gap: 1rem;
+}
+.btn-learn{
+    justify-self: flex-end;
+    align-items: flex-end;
+}
+.card:hover{
+    box-shadow: 0.1rem 0.2rem 0.8rem brown;
+    /*transform: scale(1.1);*/
+    transform: translate(20px,-50px);
+    cursor: pointer;
+}
+
+.tutorials{
+    min-height: 80vh;
+    background-color: rgb(125, 100, 100);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.tutorial{
+    min-height: 10vh;
+    background-color: rgb(255, 178, 0);
+    width: 25%; 
+    border-radius: 2px;
+    transition-property:all;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
+.tutorial:hover{
+    background-color: rgb(200, 10, 200);
+    color: white;
+}
+
+.team-section{
+    background-color: #5454ee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+.team-members{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.team-member{
+    background-color: orangered;
+    padding: 1rem;
+}
+#team-member-1{
+    grid-column: 1/span 4;
+}
+#team-member-6{
+    grid-column: 1/span 4;
+}
+
+.parent-sec{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle-div{
+    background-color: chocolate;
+    height: 14rem;
+    width: 14rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    animation-name: circle-animate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes circle-animate {
+    25%{
+        background-color: #5454ee;
+        top: 100px;
+        left: 0;
+    }
+    50%{
+        background-color: #f55f19;
+        top: 0;
+        left: 100px;
+    }
+    75%{
+        background-color: #f50fa8;
+        bottom: 100px;
+        right: 0;
+    }
+    100%{
+        background-color: #03ee0e;
+        bottom: 0;
+        right: 100px;;
+    }
+    
+}
+
+/* responsiveness*/
+
+@media  screen and (max-width:992px) {
+    
+}
+@media  screen and (max-width:768px) {
+    main{
+        background-color: red;
+    }
+    .row{
+        flex-direction: column;
+    }
+    .row .card{
+        width: 80%;
+    }
+    .tutorials{
+        flex-direction: column;
+    }
+
+    .tutorial{
+        width: 80%;
+    }
+
+    .team-members{
+        grid-template-columns: 50% 50%;
+    }
+
+    #team-member-1{
+        grid-column: 1/span 2;
+    }
+    #team-member-6{
+        grid-column: 1/span 2;
+    }
+
+}
+@media  screen and (max-width:600px) {
+    main{
+        background-color: yellow;
+    }
+    .tutorial{
+        width: 80%;
+    }
+}
